@@ -1,15 +1,19 @@
 import React from "react"
 
-const Card = () => {
+const Card = (props) => {
 
- return(   
-    <div className="card">
-        <div className="card-body">
-            This is some text within a card body.
+    return (
+        <div className="card">
+            <div className="card-body">
+                <p>{props.nombre}</p>
+                <p>{props.email}</p>
+                <p>{props.phoneNumber}</p>
+                <p>{props.address}</p>
+            </div>
         </div>
-    </div>
 
-)}
+    )
+}
 
 
 export default Card
