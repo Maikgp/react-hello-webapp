@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
 
@@ -9,6 +10,10 @@ const Card = (props) => {
                 <p>{props.email}</p>
                 <p>{props.phoneNumber}</p>
                 <p>{props.address}</p>
+
+                <Link to={`/editForm/${props.id}`}>
+                    <button>Editar</button>
+                </Link>
             </div>
         </div>
 

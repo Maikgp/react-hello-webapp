@@ -7,14 +7,14 @@ import "../../styles/demo.css";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
-	const [fullname, setFullname] = useState("");
+	const [fullName, setFullName] = useState("");
 	const [email, setEmail] = useState("");
-	const [phonenumber, setPhoneNumber] = useState("");
+	const [phoneNumber, setPhoneNumber] = useState("");
 	const [address, setAddress] = useState("");
 	const handleSubmit = e => {
 		e.preventDefault();
-		actions.createContact(fullname, email, phonenumber, address);
-		setFullname("");
+		actions.createContact(fullName, email, address, phoneNumber);
+		setFullName("");
 		setEmail("");
 		setPhoneNumber("");
 		setAddress("");
@@ -30,8 +30,8 @@ export const Demo = () => {
 						className="form-control"
 						id="exampleInputEmail1"
 						aria-describedby="emailHelp"
-						value={fullname}
-						onChange={e => setFullname(e.target.value)}
+						value={fullName}
+						onChange={e => setFullName(e.target.value)}
 						placeholder="Maikel Guerra"
 					/>
 
@@ -52,7 +52,7 @@ export const Demo = () => {
 							type="text"
 							className="form-control"
 							id="exampleInputPassword1"
-							value={phonenumber}
+							value={phoneNumber}
 							onChange={e => setPhoneNumber(e.target.value)}
 							placeholder="+34000000"
 						/>
@@ -74,7 +74,7 @@ export const Demo = () => {
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
 
-			<button onClick={() => console.log(fullname)}>Mostrar datos</button>
+			<button onClick={() => console.log(fullName)}>Mostrar datos</button>
 
 
 			<Link to="/">

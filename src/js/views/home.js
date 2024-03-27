@@ -19,10 +19,11 @@ export const Home = () => {
 
 				return (
 					<Card
-						nombre={item.full_Name}
+						nombre={item.full_name}
 						email={item.email}
 						phoneNumber={item.phone}
 						address={item.address}
+						id={item.id}
 						key={index} />
 
 				);
