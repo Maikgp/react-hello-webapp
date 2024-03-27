@@ -9,26 +9,30 @@ export const EditForm = () => {
     const { store, actions } = useContext(Context);
     const [fullname, setFullName] = useState("Nombre");
     const [email, setEmail] = useState("correo");
-    const [phonenumber, setPhoneNumber] = useState("numero");
+    const [phoneNumber, setPhoneNumber] = useState("numero");
     const [address, setAddress] = useState("direccion");
     const { id } = useParams();
 
     useEffect(() => {
         actions.getSingleContact(id);
+    }, []);
+
+    useEffect(() => {
         setFullName(store.contact.full_name);
         setEmail(store.contact.email);
-        setPhoneNumber(store.contact.phoneNumber);
+        setPhoneNumber(store.contact.phone);
         setAddress(store.contact.address);
-    }, []);
+    }, [store.contact]);
 
 
     const handleSubmit = e => {
         e.preventDefault();
-        actions.editContact(fullname, email, address, phonenumber, id);
+        actions.editContact(fullname, email, address, phoneNumber, id);
         setFullName("");
         setEmail("");
-        setPhoneNumber("");
         setAddress("");
+        setPhoneNumber("");
+        
     }
 
 
@@ -64,7 +68,7 @@ export const EditForm = () => {
                             type="text"
                             className="form-control"
                             id="exampleInputPassword1"
-                            value={phonenumber}
+                            value={phoneNumber}
                             onChange={e => setPhoneNumber(e.target.value)}
                             placeholder="+34000000"
                         />
@@ -86,7 +90,7 @@ export const EditForm = () => {
                 <button type="submit" className="btn btn-primary">Submit</button>
             </form>
 
-            <button onClick={() => console.log(fullname)}>Mostrar datos</button>
+            
 
 
             <Link to="/">

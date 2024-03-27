@@ -74,7 +74,7 @@ export const Demo = () => {
 				<button type="submit" className="btn btn-primary">Submit</button>
 			</form>
 
-			<button onClick={() => console.log(fullName)}>Mostrar datos</button>
+			
 
 
 			<Link to="/">
