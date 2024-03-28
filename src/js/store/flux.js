@@ -2,7 +2,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			contacts: [],
-			contact: {}
+			contact: {},
+			onLogin: false
 
 		},
 		actions: {
@@ -28,7 +29,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 			getContacts: () => {
 				fetch("https://playground.4geeks.com/apis/fake/contact/agenda/Maikgp")
-					.then(Response => Response.json())
+					.then(response => response.json())
 					.then(data => {
 						setStore({ contacts: data })
 						console.log(data)
@@ -41,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getSingleContact: (id) => {
 				fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`)
 					.then(Response => Response.json())
-					.then(data => setStore({ contact: data }))					
+					.then(data => setStore({ contact: data }))
 					.catch(error => console.log('Error;', error));
 
 			},
@@ -63,11 +64,21 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					})
 				})
-					.then(Response => Response.json())
+					.then(response => response.json())
 					.then(data => console.log(data))
 					.catch(error => console.log('Error;', error));
 
 			},
+			deleteContact: (id) => {
+				fetch(`https://playground.4geeks.com/apis/fake/contact/${id}`, {
+					method: 'DELETE',
+				})
+					.then(response => response.json())
+					.then(data => console.log(data))
+					.catch(error => console.log('Error;', error));
+			},
+
+
 		}
 
 	};

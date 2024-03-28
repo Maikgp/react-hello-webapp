@@ -8,9 +8,7 @@ export const Home = () => {
 	const { store, actions } = useContext(Context);
 
 	useEffect(() => {
-		actions.getContacts();
-		console.log(store.contacts);
-
+		actions.getContacts();	
 	}, []);
 	
 	return (
