@@ -1,35 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
-import "../../styles/card.css"; // Importar el archivo CSS para el componente Card
+import "../../styles/card.css";
+
 
 const Card = (props) => {
     const { store, actions } = useContext(Context);
-
     const handleDelete = () => {
         actions.deleteContact(props.id);
     }
 
     return (
-        <div className="card"> {/* Aplicar clase "card" para estilos */}
+        <div className="card">
             <div className="card-body">
-                <p>{props.nombre}</p>
-                <p>{props.email}</p>
-                <p>{props.phoneNumber}</p>
-                <p>{props.address}</p>
+                <h2 className="card-title">{props.nombre}</h2>
+                <p className="card-info"><strong><i className="fa-solid fa-envelope"></i></strong> {props.email}</p>
+                <p className="card-info"><strong><i className="fa-solid fa-phone"></i></strong> {props.phoneNumber}</p>
+                <p className="card-info"><strong><i className="fa-solid fa-location-dot"></i></strong> {props.address}</p>
+                <div className="card-buttons">
+                    <Link to={`/editForm/${props.id}`} className="btn btn-edit">
+                        <i className="fa-solid fa-pen-to-square"></i>
+                    </Link>
+                    <button onClick={handleDelete} className="btn btn-delete">
+                        <i className="fa-solid fa-trash-can"></i>
+                        <span className="delete-text">Delete Contact</span>
+                    </button>
 
-                <Link to={`/editForm/${props.id}`}>
-                    <button className="edit-button">Editar</button> {/* Aplicar clase "edit-button" */}
-                </Link>
-
-                <button className="delete-button" onClick={handleDelete}>Eliminar</button> {/* Aplicar clase "delete-button" */}
+                </div>
             </div>
         </div>
     );
-}
+};
+
+
 
 export default Card;
-
 
 
 

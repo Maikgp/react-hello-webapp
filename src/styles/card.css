@@ -1,5 +1,5 @@
 .card {
-    background-color: #4594ac; 
+    background-color: #7d97b4; 
     border: 1px solid #ccc; 
     border-radius: 5px; 
     padding: 15px; 
@@ -8,16 +8,14 @@
 }
 
 
-.edit-button, .delete-button {
-    background-color: #49c2ca; 
-    color: #fff; 
-    border: none; 
-    padding: 5px 10px; 
-    margin-right: 10px; 
-    cursor: pointer; 
-    border-radius: 3px; 
+.btn-delete {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
-.edit-button:hover, .delete-button:hover {
-    background-color: #2e4583; 
+.delete-text {
+    margin-left: 5px; 
 }
